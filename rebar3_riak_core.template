@@ -1,0 +1,26 @@
+{description, "Rebar3 Riak Core Application"}.
+{variables, [
+    {name, "myrcore", "Name of the application"},
+    {desc, "A Riak Core Application", "Short description of the app"}
+]}.
+
+{template, "rebar3_riak_core.app.src.tpl", "apps/{{name}}/src/{{name}}.app.src"}.
+{template, "rebar3_riak_core.erl.tpl", "apps/{{name}}/src/{{name}}.erl"}.
+{template, "rebar3_riak_core_app.erl.tpl", "apps/{{name}}/src/{{name}}_app.erl"}.
+{template, "rebar3_riak_core_sup.erl.tpl", "apps/{{name}}/src/{{name}}_sup.erl"}.
+{template, "rebar3_riak_core_console.erl.tpl", "apps/{{name}}/src/{{name}}_console.erl"}.
+{template, "rebar3_riak_core_vnode.erl.tpl", "apps/{{name}}/src/{{name}}_vnode.erl"}.
+{template, "rebar3_riak_core_rebar.config.tpl", "rebar.config"}.
+{template, "rebar3_riak_core_editorconfig.tpl", ".editorconfig"}.
+{template, "rebar3_riak_core_gitignore.tpl", ".gitignore"}.
+{template, "rebar3_riak_core_README.rst.tpl", "README.rst"}.
+{template, "rebar3_riak_core_Makefile.tpl", "Makefile"}.
+
+{file, "rebar3_riak_core_extended_bin", "config/extended_bin"}.
+{template, "rebar3_riak_core_config.schema.tpl", "config/config.schema"}.
+{template, "rebar3_riak_core_advanced.config.tpl", "config/advanced.config"}.
+{template, "rebar3_riak_core_sys.config.tpl", "config/sys.config"}.
+{template, "rebar3_riak_core_vars.config.tpl", "config/vars.config"}.
+{template, "rebar3_riak_core_vm.args.tpl", "config/vm.args"}.
+
+{chmod, "config/extended_bin", 8#744}.
