@@ -1,7 +1,6 @@
 {erl_opts, [debug_info, {parse_transform, lager_transform}]}.
 
 {deps, [
-    {clique, {git, "git://github.com/basho/clique.git", {tag, "0.3.3"}}},
     {pbkdf2, {git, "git://github.com/marianoguerra/erlang-pbkdf2-no-history", {branch, "master"}}},
     {exometer_core, {git, "git://github.com/basho/exometer_core.git", {branch, "th/correct-dependencies"}}},
     {riak_core, {git, "git://github.com/basho/riak_core", {branch, "develop"}}}
@@ -9,6 +8,7 @@
 
 {relx, [{release, { {{ name }} , "0.1.0"},
          [{{ name }},
+          cuttlefish,
           sasl]},
 
         {sys_config, "./config/sys.config"},
