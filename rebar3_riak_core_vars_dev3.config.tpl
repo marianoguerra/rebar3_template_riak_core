@@ -1,11 +1,11 @@
 {cuttlefish_conf, "{{ name }}.conf"}.
 {rel_name, "{{ name }}"}.
-{node_name, "{{ name }}"}.
-{node, "{{ name }}@127.0.0.1"}.
+{node_name, "{{ name }}3"}.
+{node, "{{ name }}3@127.0.0.1"}.
 
 {web_ip,            "127.0.0.1"}.
-{web_port,          8098}.
-{handoff_port,      8099}.
+{web_port,          8398}.
+{handoff_port,      8399}.
 {handoff_ip,        "127.0.0.1"}.
 {sasl_error_log,    "./log/sasl-error.log"}.
 {sasl_log_dir,      "./log/sasl"}.

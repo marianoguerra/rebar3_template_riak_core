@@ -1,4 +1,4 @@
--name {{ name }}@127.0.0.1
+-name {{ meta_node_name }}@127.0.0.1
 
 -setcookie {{ name }}_cookie
 

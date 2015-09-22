@@ -44,10 +44,13 @@
     {rebar3_cuttlefish, {git, "git://github.com/tsloughter/rebar3_cuttlefish.git", {branch, "master"}}}
 ]}.
 
-{profiles, [{prod, [{relx, [{dev_mode, false},
-                            {include_erts, true}]}]
-            }]
-}.
+{profiles, [
+    {prod, [{relx, [{dev_mode, false}, {include_erts, true}]}]},
+    {dev1, [{relx, [{overlay_vars, "config/vars_dev1.config"}]}]},
+    {dev2, [{relx, [{overlay_vars, "config/vars_dev2.config"}]}]},
+    {dev3, [{relx, [{overlay_vars, "config/vars_dev3.config"}]}]}
+]}.
+
 
 {provider_hooks, [
     {post, [{release, cuttlefish}]}

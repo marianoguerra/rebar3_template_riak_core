@@ -1,7 +1,8 @@
 {description, "Rebar3 Riak Core Application"}.
 {variables, [
     {name, "myrcore", "Name of the application"},
-    {desc, "A Riak Core Application", "Short description of the app"}
+    {desc, "A Riak Core Application", "Short description of the app"},
+    {meta_node_name, "{{ node_name }}", "hack, you don't care about this"}
 ]}.
 
 {template, "rebar3_riak_core.app.src.tpl", "apps/{{name}}/src/{{name}}.app.src"}.
@@ -21,6 +22,9 @@
 {template, "rebar3_riak_core_advanced.config.tpl", "config/advanced.config"}.
 {template, "rebar3_riak_core_sys.config.tpl", "config/sys.config"}.
 {template, "rebar3_riak_core_vars.config.tpl", "config/vars.config"}.
+{template, "rebar3_riak_core_vars_dev1.config.tpl", "config/vars_dev1.config"}.
+{template, "rebar3_riak_core_vars_dev2.config.tpl", "config/vars_dev2.config"}.
+{template, "rebar3_riak_core_vars_dev3.config.tpl", "config/vars_dev3.config"}.
 {template, "rebar3_riak_core_vm.args.tpl", "config/vm.args"}.
 
 {chmod, "config/extended_bin", 8#744}.
