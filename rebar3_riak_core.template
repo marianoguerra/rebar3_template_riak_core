@@ -2,7 +2,7 @@
 {variables, [
     {name, "myrcore", "Name of the application"},
     {desc, "A Riak Core Application", "Short description of the app"},
-    {meta_node_name, "{{ node_name }}", "hack, you don't care about this"}
+    {meta_vm_args_path, "{{output_dir}}/releases/{{release_version}}/vm.args", "Internal, ignore"}
 ]}.
 
 {template, "rebar3_riak_core.app.src.tpl", "{{name}}/apps/{{name}}/src/{{name}}.app.src"}.
@@ -28,6 +28,9 @@
 {template, "rebar3_riak_core_vars_dev2.config.tpl", "{{name}}/config/vars_dev2.config"}.
 {template, "rebar3_riak_core_vars_dev3.config.tpl", "{{name}}/config/vars_dev3.config"}.
 {template, "rebar3_riak_core_vm.args.tpl", "{{name}}/config/vm.args"}.
+{template, "rebar3_riak_core_dev1_vm.args.tpl", "{{name}}/config/dev1_vm.args"}.
+{template, "rebar3_riak_core_dev2_vm.args.tpl", "{{name}}/config/dev2_vm.args"}.
+{template, "rebar3_riak_core_dev3_vm.args.tpl", "{{name}}/config/dev3_vm.args"}.
 
 {chmod, "{{name}}/config/extended_bin", 8#744}.
 {chmod, "{{name}}/config/admin_bin", 8#744}.

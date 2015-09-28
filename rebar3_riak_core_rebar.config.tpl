@@ -35,9 +35,9 @@
             {template, "./config/extended_bin", "bin/{{ name }}"},
             {copy, "./config/admin_bin", "bin/{{ name }}-admin"},
             {copy, "./config/nodetool", "bin/nodetool"},
-            {template, "./config/vm.args", "etc/vm.args"},
             {template, "./config/advanced.config", "etc/advanced.config"},
-            {copy, "./_build/default/bin/cuttlefish", "bin/cuttlefish"}
+            {copy, "./_build/default/bin/cuttlefish", "bin/cuttlefish"},
+            {copy, "{{ meta_vm_args_path }}", "etc/vm.args"}
         ]}
 ]}.
 
@@ -48,9 +48,12 @@
 
 {profiles, [
     {prod, [{relx, [{dev_mode, false}, {include_erts, true}]}]},
-    {dev1, [{relx, [{overlay_vars, "config/vars_dev1.config"}]}]},
-    {dev2, [{relx, [{overlay_vars, "config/vars_dev2.config"}]}]},
-    {dev3, [{relx, [{overlay_vars, "config/vars_dev3.config"}]}]}
+    {dev1, [{relx, [{overlay_vars, "config/vars_dev1.config"},
+                    {vm_args, "./config/dev1_vm.args"}]}]},
+    {dev2, [{relx, [{overlay_vars, "config/vars_dev2.config"},
+                    {vm_args, "./config/dev2_vm.args"}]}]},
+    {dev3, [{relx, [{overlay_vars, "config/vars_dev3.config"},
+                    {vm_args, "./config/dev3_vm.args"}]}]}
 ]}.
 
 

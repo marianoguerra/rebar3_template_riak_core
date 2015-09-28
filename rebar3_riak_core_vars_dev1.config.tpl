@@ -1,6 +1,5 @@
 {cuttlefish_conf, "{{ name }}.conf"}.
 {rel_name, "{{ name }}"}.
-{node_name, "{{ name }}1"}.
 {node, "{{ name }}1@127.0.0.1"}.
 
 {web_ip,            "127.0.0.1"}.

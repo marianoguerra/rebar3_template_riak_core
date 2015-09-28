@@ -144,7 +144,7 @@ if [ -z "$COOKIE_ARG" ]; then
 #TODO: change {{ cuttlefish_conf }} to something more senisble!
     COOKIE=`egrep '^[ \t]*distributed_cookie[ \t]*=[ \t]*' $RUNNER_ETC_DIR/{{ cuttlefish_conf }} 2> /dev/null | cut -d = -f 2`
     if [ -z "$COOKIE" ]; then
-        echo "vm.args needs to have a -setcookie parameter."
+        echo "{{ cutlefish_conf }} needs to have a distributed_cookie parameter."
         exit 1
     else
         COOKIE_ARG="-setcookie $COOKIE"
