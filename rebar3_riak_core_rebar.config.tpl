@@ -33,6 +33,8 @@
             {template, "./_build/default/lib/eleveldb/priv/eleveldb.schema", "share/schema/21-leveldb.schema"},
             {template, "config/config.schema", "share/schema/22-{{ name }}.schema"},
             {template, "./config/extended_bin", "bin/{{ name }}"},
+            {copy, "./config/admin_bin", "bin/{{ name }}-admin"},
+            {copy, "./config/nodetool", "bin/nodetool"},
             {template, "./config/vm.args", "etc/vm.args"},
             {template, "./config/advanced.config", "etc/advanced.config"},
             {copy, "./_build/default/bin/cuttlefish", "bin/cuttlefish"}

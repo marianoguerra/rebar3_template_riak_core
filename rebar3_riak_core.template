@@ -17,7 +17,9 @@
 {template, "rebar3_riak_core_README.rst.tpl", "{{name}}/README.rst"}.
 {template, "rebar3_riak_core_Makefile.tpl", "{{name}}/Makefile"}.
 
+{file, "rebar3_riak_core_nodetool", "{{name}}/config/nodetool"}.
 {file, "rebar3_riak_core_extended_bin", "{{name}}/config/extended_bin"}.
+{template, "rebar3_riak_core_admin_runner", "{{name}}/config/admin_bin"}.
 {template, "rebar3_riak_core_config.schema.tpl", "{{name}}/config/config.schema"}.
 {template, "rebar3_riak_core_advanced.config.tpl", "{{name}}/config/advanced.config"}.
 {template, "rebar3_riak_core_sys.config.tpl", "{{name}}/config/sys.config"}.
@@ -28,3 +30,4 @@
 {template, "rebar3_riak_core_vm.args.tpl", "{{name}}/config/vm.args"}.
 
 {chmod, "{{name}}/config/extended_bin", 8#744}.
+{chmod, "{{name}}/config/admin_bin", 8#744}.
