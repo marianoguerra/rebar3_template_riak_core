@@ -13,7 +13,7 @@
 
 %% @doc Pings a random vnode to make sure communication is functional
 ping() ->
-    DocIdx = riak_core_util:chash_key({<<"ping">>, term_to_binary(now())}),
+    DocIdx = riak_core_util:chash_key({<<"ping">>, term_to_binary(os:timestamp())}),
     PrefList = riak_core_apl:get_primary_apl(DocIdx, 1, {{name}}),
     [{IndexNode, _Type}] = PrefList,
     riak_core_vnode_master:sync_spawn_command(IndexNode, ping, {{name}}_vnode_master).
