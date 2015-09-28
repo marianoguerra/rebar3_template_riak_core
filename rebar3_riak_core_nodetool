@@ -1,3 +1,4 @@
+#!/usr/bin/env escript
 %% -*- mode: erlang;erlang-indent-level: 4;indent-tabs-mode: nil -*-
 %% ex: ft=erlang ts=4 sw=4 et
 %% -------------------------------------------------------------------
@@ -42,9 +43,9 @@ main(Args) ->
                 _ ->
                     halt(1)
             end;
-        ["rpcterms", Module, Function, ArgsAsString] ->
+        ["rpcterms", Module, Function | ArgsAsString] ->
             case rpc:call(TargetNode, list_to_atom(Module), list_to_atom(Function),
-                          consult(ArgsAsString), 60000) of
+                          consult(lists:flatten(ArgsAsString)), 60000) of
                 {badrpc, Reason} ->
                     io:format("RPC to ~p failed: ~p\n", [TargetNode, Reason]),
                     halt(1);
@@ -53,7 +54,7 @@ main(Args) ->
             end;
         Other ->
             io:format("Other: ~p\n", [Other]),
-            io:format("Usage: nodetool {ping|stop|restart|reboot}\n")
+            io:format("Usage: nodetool {ping|stop|restart|reboot|rpc|rpcterms} [RPC]\n")
     end,
     net_kernel:stop().
 
@@ -75,7 +76,7 @@ process_args([Arg | Rest], Acc, Opts) ->
 
 
 start_epmd() ->
-    [] = os:cmd(epmd_path() ++ " -daemon"),
+    [] = os:cmd("\"" ++ epmd_path() ++ "\" -daemon"),
     ok.
 
 epmd_path() ->
@@ -111,7 +112,6 @@ append_node_suffix(Name, Suffix) ->
         [Node] ->
             list_to_atom(lists:concat([Node, Suffix, os:getpid()]))
     end.
-
 
 %%
 %% Given a string or binary, parse it into a list of terms, ala file:consult/0
