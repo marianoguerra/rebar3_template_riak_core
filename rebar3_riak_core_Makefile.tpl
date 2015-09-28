@@ -2,6 +2,7 @@ BASEDIR = $(shell pwd)
 REBAR = rebar3
 RELPATH = _build/default/rel/{{ name }}
 APPNAME = {{ name }}
+SHELL = /bin/bash
 
 release:
 	$(REBAR) release
