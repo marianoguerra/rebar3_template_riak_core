@@ -1,5 +1,5 @@
 BASEDIR = $(shell pwd)
-REBAR = $(shell pwd)/rebar3
+REBAR = rebar3
 RELPATH = _build/default/rel/{{ name }}
 APPNAME = {{ name }}
 
