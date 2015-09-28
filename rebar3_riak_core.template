@@ -5,26 +5,26 @@
     {meta_node_name, "{{ node_name }}", "hack, you don't care about this"}
 ]}.
 
-{template, "rebar3_riak_core.app.src.tpl", "apps/{{name}}/src/{{name}}.app.src"}.
-{template, "rebar3_riak_core.erl.tpl", "apps/{{name}}/src/{{name}}.erl"}.
-{template, "rebar3_riak_core_app.erl.tpl", "apps/{{name}}/src/{{name}}_app.erl"}.
-{template, "rebar3_riak_core_sup.erl.tpl", "apps/{{name}}/src/{{name}}_sup.erl"}.
-{template, "rebar3_riak_core_console.erl.tpl", "apps/{{name}}/src/{{name}}_console.erl"}.
-{template, "rebar3_riak_core_vnode.erl.tpl", "apps/{{name}}/src/{{name}}_vnode.erl"}.
-{template, "rebar3_riak_core_rebar.config.tpl", "rebar.config"}.
-{template, "rebar3_riak_core_editorconfig.tpl", ".editorconfig"}.
-{template, "rebar3_riak_core_gitignore.tpl", ".gitignore"}.
-{template, "rebar3_riak_core_README.rst.tpl", "README.rst"}.
-{template, "rebar3_riak_core_Makefile.tpl", "Makefile"}.
+{template, "rebar3_riak_core.app.src.tpl", "{{name}}/apps/{{name}}/src/{{name}}.app.src"}.
+{template, "rebar3_riak_core.erl.tpl", "{{name}}/apps/{{name}}/src/{{name}}.erl"}.
+{template, "rebar3_riak_core_app.erl.tpl", "{{name}}/apps/{{name}}/src/{{name}}_app.erl"}.
+{template, "rebar3_riak_core_sup.erl.tpl", "{{name}}/apps/{{name}}/src/{{name}}_sup.erl"}.
+{template, "rebar3_riak_core_console.erl.tpl", "{{name}}/apps/{{name}}/src/{{name}}_console.erl"}.
+{template, "rebar3_riak_core_vnode.erl.tpl", "{{name}}/apps/{{name}}/src/{{name}}_vnode.erl"}.
+{template, "rebar3_riak_core_rebar.config.tpl", "{{name}}/rebar.config"}.
+{template, "rebar3_riak_core_editorconfig.tpl", "{{name}}/.editorconfig"}.
+{template, "rebar3_riak_core_gitignore.tpl", "{{name}}/.gitignore"}.
+{template, "rebar3_riak_core_README.rst.tpl", "{{name}}/README.rst"}.
+{template, "rebar3_riak_core_Makefile.tpl", "{{name}}/Makefile"}.
 
-{file, "rebar3_riak_core_extended_bin", "config/extended_bin"}.
-{template, "rebar3_riak_core_config.schema.tpl", "config/config.schema"}.
-{template, "rebar3_riak_core_advanced.config.tpl", "config/advanced.config"}.
-{template, "rebar3_riak_core_sys.config.tpl", "config/sys.config"}.
-{template, "rebar3_riak_core_vars.config.tpl", "config/vars.config"}.
-{template, "rebar3_riak_core_vars_dev1.config.tpl", "config/vars_dev1.config"}.
-{template, "rebar3_riak_core_vars_dev2.config.tpl", "config/vars_dev2.config"}.
-{template, "rebar3_riak_core_vars_dev3.config.tpl", "config/vars_dev3.config"}.
-{template, "rebar3_riak_core_vm.args.tpl", "config/vm.args"}.
+{file, "rebar3_riak_core_extended_bin", "{{name}}/config/extended_bin"}.
+{template, "rebar3_riak_core_config.schema.tpl", "{{name}}/config/config.schema"}.
+{template, "rebar3_riak_core_advanced.config.tpl", "{{name}}/config/advanced.config"}.
+{template, "rebar3_riak_core_sys.config.tpl", "{{name}}/config/sys.config"}.
+{template, "rebar3_riak_core_vars.config.tpl", "{{name}}/config/vars.config"}.
+{template, "rebar3_riak_core_vars_dev1.config.tpl", "{{name}}/config/vars_dev1.config"}.
+{template, "rebar3_riak_core_vars_dev2.config.tpl", "{{name}}/config/vars_dev2.config"}.
+{template, "rebar3_riak_core_vars_dev3.config.tpl", "{{name}}/config/vars_dev3.config"}.
+{template, "rebar3_riak_core_vm.args.tpl", "{{name}}/config/vm.args"}.
 
-{chmod, "config/extended_bin", 8#744}.
+{chmod, "{{name}}/config/extended_bin", 8#744}.
