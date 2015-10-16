@@ -161,6 +161,7 @@ export EMU="beam"
 export PROGNAME="erl"
 export LD_LIBRARY_PATH="$ERTS_DIR/lib:$LD_LIBRARY_PATH"
 ERTS_LIB_DIR="$ERTS_DIR/../lib"
+CUTTLEFISHCMD="$ERTS_DIR/bin/escript $RUNNER_BASE_DIR/bin/cuttlefish"
 
 cd "$ROOTDIR"
 
@@ -361,7 +362,7 @@ case "$1" in
         # Store passed arguments since they will be erased by `set`
         ARGS="$@"
 
-        if CUTTLEFISH_CONFIG=$($RUNNER_BASE_DIR/bin/cuttlefish -e $RUNNER_ETC_DIR -d $RUNNER_BASE_DIR/generated.configs -s $RUNNER_BASE_DIR/share/schema/ -c $RUNNER_ETC_DIR/{{ cuttlefish_conf }})
+        if CUTTLEFISH_CONFIG=$($CUTTLEFISHCMD -e $RUNNER_ETC_DIR -d $RUNNER_BASE_DIR/generated.configs -s $RUNNER_BASE_DIR/share/schema/ -c $RUNNER_ETC_DIR/{{ cuttlefish_conf }})
         then
             CONFIG_FILES="$CUTTLEFISH_CONFIG"
         else
@@ -404,7 +405,7 @@ case "$1" in
         # Store passed arguments since they will be erased by `set`
         ARGS="$@"
 
-        if CUTTLEFISH_CONFIG=$($RUNNER_BASE_DIR/bin/cuttlefish -e $RUNNER_ETC_DIR -d $RUNNER_BASE_DIR/generated.configs -s $RUNNER_BASE_DIR/share/schema/ -c $RUNNER_ETC_DIR/{{ cuttlefish_conf }})
+        if CUTTLEFISH_CONFIG=$($CUTTLEFISHCMD -e $RUNNER_ETC_DIR -d $RUNNER_BASE_DIR/generated.configs -s $RUNNER_BASE_DIR/share/schema/ -c $RUNNER_ETC_DIR/{{ cuttlefish_conf }})
         then
             CONFIG_FILES="$CUTTLEFISH_CONFIG"
         else
