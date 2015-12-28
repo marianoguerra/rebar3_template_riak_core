@@ -41,7 +41,6 @@
 ]}.
 
 {plugins, [
-    {rebar3_run, {git, "git://github.com/tsloughter/rebar3_run.git", {branch, "master"}}},
     {rebar3_cuttlefish, {git, "git://github.com/tsloughter/rebar3_cuttlefish.git", {branch, "master"}}}
 ]}.
 
@@ -92,4 +91,8 @@
           {platform_define, "^[0-9]+", namespaced_types},
           {platform_define, "^R15", "old_hash"}]}
   ]}
+
+  {override, setup, [{post_hooks, []}, {deps, []}]},
+  {override, parse_trans, [{deps, []}]},
+  {override, folsom, [{deps, [{bear, {git, "git://github.com/boundary/bear.git", {tag, "0.8.2"}}}]}]}
  ]}.
