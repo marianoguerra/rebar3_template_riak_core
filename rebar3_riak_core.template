@@ -2,7 +2,7 @@
 {variables, [
     {name, "myrcore", "Name of the application"},
     {desc, "A Riak Core Application", "Short description of the app"},
-    {meta_vm_args_path, "{{output_dir}}/releases/{{release_version}}/vm.args", "Internal, ignore"}
+    {meta_vm_args_path, "{{output_dir}}/releases/{{release_version}}/vm.args.orig", "Internal, ignore"}
 ]}.
 
 {template, "rebar3_riak_core.app.src.tpl", "{{name}}/apps/{{name}}/src/{{name}}.app.src"}.
