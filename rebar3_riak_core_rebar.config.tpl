@@ -11,13 +11,8 @@
           cuttlefish,
           sasl]},
 
-        {sys_config, "./config/sys.config"},
-        {vm_args, "./config/vm.args"},
-
         {dev_mode, true},
         {include_erts, false},
-
-        {extended_start_script, true},
 
         {overlay_vars, "config/vars.config"},
         {overlay, [
@@ -25,17 +20,9 @@
             {mkdir, "bin"},
             {mkdir, "data/ring"},
             {mkdir, "log/sasl"},
-            {template, "./_build/default/plugins/cuttlefish/priv/erlang_vm.schema",
-                        "share/schema/11-erlang_vm.schema"},
-            {template, "./_build/default/lib/riak_core/priv/riak_core.schema", "share/schema/12-riak_core.schema"},
-            {template, "./_build/default/lib/riak_sysmon/priv/riak_sysmon.schema", "lib/15-riak_sysmon.schema"},
-            {template, "./_build/default/lib/eleveldb/priv/eleveldb.schema", "share/schema/21-leveldb.schema"},
-            {template, "config/config.schema", "share/schema/22-{{ name }}.schema"},
-            %{template, "./config/extended_bin", "bin/{{ name }}"},
             {copy, "./config/admin_bin", "bin/{{ name }}-admin"},
             {copy, "./config/nodetool", "bin/nodetool"},
             {template, "./config/advanced.config", "etc/advanced.config"},
-            {copy, "./_build/default/bin/cuttlefish", "bin/cuttlefish"},
             {copy, "{{ meta_vm_args_path }}", "etc/vm.args"}
         ]}
 ]}.
@@ -45,18 +32,13 @@
     {rebar3_cuttlefish, {git, "git://github.com/tsloughter/rebar3_cuttlefish.git", {branch, "master"}}}
 ]}.
 
+{project_plugins, [rebar3_cuttlefish]}.
+
 {profiles, [
     {prod, [{relx, [{dev_mode, false}, {include_erts, true}]}]},
-    {dev1, [{relx, [{overlay_vars, "config/vars_dev1.config"},
-                    {vm_args, "./config/dev1_vm.args"}]}]},
-    {dev2, [{relx, [{overlay_vars, "config/vars_dev2.config"},
-                    {vm_args, "./config/dev2_vm.args"}]}]},
-    {dev3, [{relx, [{overlay_vars, "config/vars_dev3.config"},
-                    {vm_args, "./config/dev3_vm.args"}]}]}
-]}.
-
-
-{provider_hooks, [
+    {dev1, [{relx, [{overlay_vars, ["config/vars.config", "config/vars_dev1.config"]}]}]},
+    {dev2, [{relx, [{overlay_vars, ["config/vars.config", "config/vars_dev2.config"]}]}]},
+    {dev3, [{relx, [{overlay_vars, ["config/vars.config", "config/vars_dev3.config"]}]}]}
 ]}.
 
 {overrides,
