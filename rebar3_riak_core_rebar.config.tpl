@@ -21,8 +21,7 @@
             {mkdir, "data/ring"},
             {mkdir, "log/sasl"},
             {copy, "./config/admin_bin", "bin/{{ name }}-admin"},
-            {template, "./config/advanced.config", "etc/advanced.config"},
-            {copy, "{{ meta_vm_args_path }}", "etc/vm.args"}
+            {template, "./config/advanced.config", "etc/advanced.config"}
         ]}
 ]}.
 

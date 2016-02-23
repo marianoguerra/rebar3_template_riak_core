@@ -5,7 +5,7 @@ APPNAME = {{ name }}
 SHELL = /bin/bash
 
 release:
-	$(REBAR) cuttlefish release
+	$(REBAR) release
 
 compile:
 	$(REBAR) compile
@@ -17,13 +17,13 @@ test:
 	$(REBAR) ct
 
 devrel1:
-	$(REBAR) as dev1 cuttlefish release
+	$(REBAR) as dev1 release
 
 devrel2:
-	$(REBAR) as dev2 cuttlefish release
+	$(REBAR) as dev2 release
 
 devrel3:
-	$(REBAR) as dev3 cuttlefish release
+	$(REBAR) as dev3 release
 
 devrel: devrel1 devrel2 devrel3
 

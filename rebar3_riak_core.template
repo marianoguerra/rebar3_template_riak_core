@@ -1,8 +1,7 @@
 {description, "Rebar3 Riak Core Application"}.
 {variables, [
     {name, "myrcore", "Name of the application"},
-    {desc, "A Riak Core Application", "Short description of the app"},
-    {meta_vm_args_path, "{{output_dir}}/releases/{{release_version}}/vm.args", "Internal, ignore"}
+    {desc, "A Riak Core Application", "Short description of the app"}
 ]}.
 
 {template, "rebar3_riak_core.app.src.tpl", "{{name}}/apps/{{name}}/src/{{name}}.app.src"}.
@@ -18,7 +17,7 @@
 {template, "rebar3_riak_core_Makefile.tpl", "{{name}}/Makefile"}.
 
 {template, "rebar3_riak_core_admin_runner", "{{name}}/config/admin_bin"}.
-{template, "rebar3_riak_core_config.schema.tpl", "{{name}}/config/config.schema"}.
+{template, "rebar3_riak_core_config.schema.tpl", "{{name}}/priv/01-{{name}}.schema"}.
 {template, "rebar3_riak_core_advanced.config.tpl", "{{name}}/config/advanced.config"}.
 {template, "rebar3_riak_core_vars.config.tpl", "{{name}}/config/vars.config"}.
 {template, "rebar3_riak_core_vars_dev1.config.tpl", "{{name}}/config/vars_dev1.config"}.
