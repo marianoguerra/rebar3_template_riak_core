@@ -20,7 +20,7 @@
             {mkdir, "bin"},
             {mkdir, "data/ring"},
             {mkdir, "log/sasl"},
-            {copy, "./config/admin_bin", "bin/{{ name }}-admin"},
+            {template, "./config/admin_bin", "bin/{{ name }}-admin"},
             {template, "./config/advanced.config", "etc/advanced.config"}
         ]}
 ]}.
