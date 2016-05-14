@@ -11,7 +11,9 @@
 
 {platform_bin_dir,  "./bin"}.
 {platform_data_dir, "./data"}.
-{platform_etc_dir,  "./etc"}.
+% uncomment this line to change where the config goes
+% you will have to create that folder after a build for {{ name }} to start
+% {platform_etc_dir,  "../{{ name }}_config"}.
 {platform_lib_dir,  "./lib"}.
 {platform_log_dir,  "./log"}.
 
