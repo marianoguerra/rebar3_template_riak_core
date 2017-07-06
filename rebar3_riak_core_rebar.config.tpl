@@ -59,7 +59,7 @@
   },
   {override, riak_ensemble,
   [
-     {artifacts, ["c_src/riak_ensemble_clock.o"]},
+     {artifacts, ["priv/riak_ensemble_drv.so"]},
      {plugins, [pc]},
      {provider_hooks, [{post,
                          [{compile, {pc, compile}},
