@@ -1,5 +1,4 @@
 -module({{name}}).
--include_lib("riak_core/include/riak_core_vnode.hrl").
 
 -export([
          ping/0

@@ -1,10 +1,6 @@
 {erl_opts, [debug_info, {parse_transform, lager_transform}]}.
 
-{deps, [
-    {pbkdf2, {git, "git://github.com/marianoguerra/erlang-pbkdf2-no-history", {branch, "master"}}},
-    {exometer_core, {git, "git://github.com/basho/exometer_core.git", {branch, "th/correct-dependencies"}}},
-    {riak_core, {git, "git://github.com/basho/riak_core", {branch, "develop"}}}
-]}.
+{deps, [pbkdf2, {riak_core, {pkg, riak_core_ng}}]}.
 
 {relx, [{release, { {{ name }} , "0.1.0"},
          [{{ name }},
@@ -25,11 +21,9 @@
         ]}
 ]}.
 
-{plugins, [
-    {rebar3_run, {git, "git://github.com/tsloughter/rebar3_run.git", {branch, "master"}}}
-]}.
+{plugins, [rebar3_run]}.
 
-{project_plugins, [{rebar3_cuttlefish, {git, "git://github.com/tsloughter/rebar3_cuttlefish.git", {branch, "master"}}}]}.
+{project_plugins, [rebar3_cuttlefish]}.
 
 {profiles, [
     {prod, [{relx, [{dev_mode, false}, {include_erts, true}]}]},
@@ -75,5 +69,10 @@
           {parse_transform, lager_transform},
           {platform_define, "^[0-9]+", namespaced_types},
           {platform_define, "^R15", "old_hash"}]}
-  ]}
+  ]},
+  {override, poolboy,
+      [{erl_opts,
+          [debug_info, {platform_define, "^[0-9]+", namespaced_types}]}]},
+  {override, cuttlefish,
+      [{escript_emu_args, "%%! -escript main cuttlefish_escript +S 1 +A 0\n"}]}
  ]}.
