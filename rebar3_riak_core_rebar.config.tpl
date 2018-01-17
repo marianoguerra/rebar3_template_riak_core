@@ -1,6 +1,6 @@
 {erl_opts, [debug_info, {parse_transform, lager_transform}]}.
 
-{deps, [pbkdf2, {riak_core, {pkg, riak_core_ng}}]}.
+{deps, [recon, {riak_core, {pkg, riak_core_ng}}]}.
 
 {relx, [{release, { {{ name }} , "0.1.0"},
          [{{ name }},
