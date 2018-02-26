@@ -9,6 +9,8 @@
 {sasl_error_log,    "./log/sasl-error.log"}.
 {sasl_log_dir,      "./log/sasl"}.
 
+{run_user_home,     "$HOME"}.
+
 {platform_bin_dir,  "./bin"}.
 {platform_data_dir, "../{{ name }}_data"}.
 {platform_etc_dir,  "../{{ name }}_config"}.
