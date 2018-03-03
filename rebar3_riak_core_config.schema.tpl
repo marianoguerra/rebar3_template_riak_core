@@ -10,7 +10,7 @@
 %% @doc port to listen to for HTTP API
 {mapping, "http.port", "{{ name }}.http_port", [
   {datatype, integer},
-  {default, 8080}
+  {default, {{default_config_http_port}} }
 ]}.
 
 %% @doc number of acceptors to user for HTTP API

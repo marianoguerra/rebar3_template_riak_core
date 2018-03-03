@@ -1,7 +1,8 @@
 {description, "Rebar3 Riak Core Application"}.
 {variables, [
     {name, "myrcore", "Name of the application"},
-    {desc, "A Riak Core Application", "Short description of the app"}
+    {desc, "A Riak Core Application", "Short description of the app"},
+    {default_config_http_port, "{{web_port}}"}
 ]}.
 
 {template, "rebar3_riak_core.app.src.tpl", "{{name}}/apps/{{name}}/src/{{name}}.app.src"}.
