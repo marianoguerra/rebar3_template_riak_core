@@ -55,6 +55,15 @@ devrel3:
 
 devrel: devrel1 devrel2 devrel3
 
+dev1-attach:
+	$(BASEDIR)/_build/dev1/rel/{{ name }}/bin/$(APPNAME) attach
+
+dev2-attach:
+	$(BASEDIR)/_build/dev2/rel/{{ name }}/bin/$(APPNAME) attach
+
+dev3-attach:
+	$(BASEDIR)/_build/dev3/rel/{{ name }}/bin/$(APPNAME) attach
+
 dev1-console:
 	$(BASEDIR)/_build/dev1/rel/{{ name }}/bin/$(APPNAME) console
 
@@ -80,10 +89,10 @@ devrel-status:
 	$(BASEDIR)/_build/dev1/rel/{{ name }}/bin/$(APPNAME)-admin member-status
 
 devrel-ping:
-	for d in $(BASEDIR)/_build/dev*; do $$d/rel/{{ name }}/bin/$(APPNAME) ping; done
+	for d in $(BASEDIR)/_build/dev*; do $$d/rel/{{ name }}/bin/$(APPNAME) ping; true; done
 
 devrel-stop:
-	for d in $(BASEDIR)/_build/dev*; do $$d/rel/{{ name }}/bin/$(APPNAME) stop; done
+	for d in $(BASEDIR)/_build/dev*; do $$d/rel/{{ name }}/bin/$(APPNAME) stop; true; done
 
 start:
 	$(BASEDIR)/$(RELPATH)/bin/$(APPNAME) start
