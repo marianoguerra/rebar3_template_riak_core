@@ -74,7 +74,7 @@ dev3-console:
 	$(BASEDIR)/_build/dev3/rel/{{ name }}/bin/$(APPNAME) console
 
 devrel-clean:
-    rm -rf _build/dev*/rel
+	rm -rf _build/dev*/rel
 
 devrel-start:
 	for d in $(BASEDIR)/_build/dev*; do $$d/rel/{{ name }}/bin/$(APPNAME) start; done
