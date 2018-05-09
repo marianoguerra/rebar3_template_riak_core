@@ -69,7 +69,8 @@
       {erl_opts, [debug_info,
           {parse_transform, lager_transform},
           {platform_define, "^[0-9]+", namespaced_types},
-          {platform_define, "^R15", "old_hash"}]}
+          {platform_define, "^R15", "old_hash"}]},
+      {plugins, [{rebar_erl_vsn, "0.1.5"}]}
   ]},
   {override, poolboy,
       [{erl_opts,
