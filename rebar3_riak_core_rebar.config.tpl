@@ -1,7 +1,7 @@
 %% -*- mode: erlang; -*-
 {erl_opts, [debug_info, {parse_transform, lager_transform}]}.
 
-{deps, [recon, {riak_core, {pkg, riak_core_ng}}]}.
+{deps, [lager, recon, {riak_core, {pkg, riak_core_ng}}]}.
 
 {relx, [{release, { {{ name }} , "0.1.0"},
          [{{ name }},
@@ -64,17 +64,8 @@
           warn_untyped_record,
           {parse_transform, lager_transform}]}
   ]},
-  {override, riak_core,
-  [
-      {erl_opts, [debug_info,
-          {parse_transform, lager_transform},
-          {platform_define, "^[0-9]+", namespaced_types},
-          {platform_define, "^R15", "old_hash"}]},
-      {plugins, [{rebar_erl_vsn, "0.1.5"}]}
-  ]},
-  {override, poolboy,
-      [{erl_opts,
-          [debug_info, {platform_define, "^[0-9]+", namespaced_types}]}]},
+  {del, riak_core, [{erl_opts, [warnings_as_errors]}]},
+  {del, poolboy, [{erl_opts, [warnings_as_errors]}]},
   {override, cuttlefish,
       [{escript_emu_args, "%%! -escript main cuttlefish_escript +S 1 +A 0\n"}]}
  ]}.
