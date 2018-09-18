@@ -20,6 +20,9 @@
 {file, "rebar3_riak_core_admin_runner", "{{name}}/config/admin_bin"}.
 {template, "rebar3_riak_core_config.schema.tpl", "{{name}}/priv/01-{{name}}.schema"}.
 {template, "rebar3_riak_core_advanced.config.tpl", "{{name}}/config/advanced.config"}.
+{file, "rebar3_riak_core.lager.schema", "{{name}}/config/lager.schema"}.
+{file, "rebar3_riak_core.riak_core.schema", "{{name}}/config/riak_core.schema"}.
+{file, "rebar3_riak_core.erlang_vm.schema", "{{name}}/config/erlang_vm.schema"}.
 {template, "rebar3_riak_core_vars.config.tpl", "{{name}}/config/vars.config"}.
 {template, "rebar3_riak_core_vars_dev1.config.tpl", "{{name}}/config/vars_dev1.config"}.
 {template, "rebar3_riak_core_vars_dev2.config.tpl", "{{name}}/config/vars_dev2.config"}.

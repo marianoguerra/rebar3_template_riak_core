@@ -18,13 +18,19 @@
             {mkdir, "data/ring"},
             {mkdir, "log/sasl"},
             {template, "./config/admin_bin", "bin/{{ name }}-admin"},
-            {template, "./config/advanced.config", "etc/advanced.config"}
+            {template, "./config/advanced.config", "etc/advanced.config"},
+            {template, "./priv/01-{{ name }}.schema", "share/schema/01-{{ name }}.schema"},
+            {template, "./config/erlang_vm.schema", "share/schema/03-vm.schema"},
+            {template, "./config/riak_core.schema", "share/schema/04-riak_core.schema"},
+            {template, "./config/lager.schema", "share/schema/05-lager.schema"}
         ]}
 ]}.
 
 {plugins, [rebar3_run]}.
 
 {project_plugins, [rebar3_cuttlefish]}.
+
+{cuttlefish, [{schema_discovery, false}]}.
 
 {profiles, [
     {prod, [{relx, [{dev_mode, false}, {include_erts, true}]}]},
